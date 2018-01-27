@@ -1,0 +1,18 @@
+
+.component.ng-enter {
+    transition:0.3s 0.4s linear all;
+    transform: translateY(10px);
+    opacity:0;
+}
+.component.ng-enter.ng-enter-active {
+    opacity:1;
+    transform: translateY(0px);
+}
+
+.component.ng-leave {
+    transition:0.3s linear all;
+    opacity:1;
+  }
+.component.ng-leave.ng-leave-active {
+    opacity:0;
+}
