@@ -1,27 +1,33 @@
-var app = angular.module('main-module',['ngRoute','ngAnimate']);
+var app = angular.module('main-module', ['ngRoute', 'ngAnimate']);
 
-app.config(['$routeProvider',function($routeProvider){
+app.config(['$routeProvider', function ($routeProvider, $locationProvider) {
+
+    /* $locationProvider.html5Mode(true); */
+
     $routeProvider
-        .when('/view1',{
+        .when('/view1', {
             templateUrl: 'view/view1.html'
         })
-        .when('/view2',{
+        .when('/view2', {
             templateUrl: 'view/view2.html'
         })
+        .otherwise({ redirectTo: '/' });
 }]);
 
-app.controller('controller1',['$scope','$location','$http',function($scope,$location,$http){
+app.controller('controller1', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     $scope.arr = 0;
     $scope.var1 = "ng----hyhoang";
-    $scope.navigate1 = function(path){
+    $scope.navigate1 = function (path) {
         console.log(path);
         $scope.arr++;
-        console.log( $scope.arr);
-        $location.path( path );
+        console.log($scope.arr);
+        $location.path(path);
     };
-    $scope.getData = function(){
-        $http.post('http://jsonplaceholder.typicode.com/posts',{somedata:'somedata'})
-            .then(function(result){console.log(result)})
+    $scope.getData = function () {
+        /* $http.post('http://jsonplaceholder.typicode.com/posts',{somedata:'somedata'})
+            .then(function(result){console.log(result)}) */
+        axios.get('http://jsonplaceholder.typicode.com/posts')
+            .then(function (result) { console.log(result) })
     }
 
 }])

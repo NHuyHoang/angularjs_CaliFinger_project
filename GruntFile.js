@@ -69,7 +69,9 @@ module.exports = function (grunt) {
                         'script/angular.min.js',
                         'script/angular-route.js',
                         'script/angular-animate.min.js',
-                        'script/app.js'
+                        'script/axios.min.js',
+                        'script/app.js',
+                        
                     ]
                 }
             }
